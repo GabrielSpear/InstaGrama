@@ -67,8 +67,8 @@ No known bugs
 
     Python3.6
     Django.1.11
-    Bootstrap
-    postgress
+    Bootstrap3
+    postgres
     virtualenv
 
 ### License
