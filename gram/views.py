@@ -17,3 +17,18 @@ def profile(request):
     profile = Profile.objects.get(user_id=current_user)
     images = Image.objects.all().filter(user=current_user)
     return render(request, 'profile.html', {'images': images, 'profile': profile})
+
+@login_required(login_url='/accounts/login/')
+def new_status(request, username):
+    current_user = request.user
+    username = current_user.username
+    if request.method == 'POST':
+        form = NewStatusForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save()
+            image.user = request.user
+            image.save()
+        return redirect('allTimelines')
+    else:
+        form = NewStatusForm()
+    return render(request, 'new_status.html', {"form": form})
