@@ -43,3 +43,12 @@ def user_profile(request, user_id):
 def single_image(request, photo_id):
     image = Image.objects.get(id=photo_id)
     return render(request, 'single_image.html', {'image': image})
+
+def find_profile(request):
+    if 'images' in request.GET and request.GET['images']:
+        search_term = request.GET.get('images')
+        searched_image = Image.search_by_user(search_term)
+        return render(request, 'user_profile.html', {'images': searched_image})
+    else:
+        message = 'You haven\'t searched for anything'
+        return render(request, 'single_image.html')
