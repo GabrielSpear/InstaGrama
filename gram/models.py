@@ -20,3 +20,30 @@ class Profile(models.Model):
 
     def save_profile(self):
         self.save()
+
+
+# Create Image function
+class Image(models.Model):
+    image = models.ImageField(upload_to='photos/', null=True)
+    image_name = models.CharField(max_length=30, null=True)
+    image_caption = models.TextField(null=True)
+    likes = models.IntegerField(default=0)
+    date_uploaded = models.DateTimeField(auto_now_add=True, null=True)
+    user = models.ForeignKey(User, null=True)
+    profile = models.ForeignKey(Profile, null=True)
+
+    class Meta:
+        ordering = ['-date_uploaded']
+
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def search_by_user(cls, search_term):
+        images = cls.objects.filter(image_caption__icontains=search_term)
+        return images
+
+    @classmethod
+    def get_image_by_id(cls, image_id):
+        images = cls.objects.get(id=image_id)
+        return images
