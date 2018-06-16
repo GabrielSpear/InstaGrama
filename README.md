@@ -59,7 +59,7 @@ This is a Django web clone app of Instagram that a user shares photos with other
 "'Incase you have any questionor issues while using this code do not hesitate to get in touch with me via gabrieldvjspear@gmail.com'"
 
 
-############### Know bugs
+##### Know bugs
 
 No known bugs
 
