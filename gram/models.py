@@ -47,3 +47,20 @@ class Image(models.Model):
     def get_image_by_id(cls, image_id):
         images = cls.objects.get(id=image_id)
         return images
+
+# Create comment function
+
+class Comments(models.Model):
+    comment = models.CharField(max_length=200)
+    user = models.ForeignKey(User, null=True)
+    image = models.ForeignKey(Image, null=True)
+    time_comment = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ['-time_comment']
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+        instance.profile.save()
