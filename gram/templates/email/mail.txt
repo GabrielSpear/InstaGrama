@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to InstaGram where you find the most amazing features that normal instagram doesnt have. HAVE FUN..
