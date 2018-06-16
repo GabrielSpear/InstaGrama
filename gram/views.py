@@ -38,3 +38,8 @@ def user_profile(request, user_id):
     profile = Profile.objects.get(id=user_id)
     images = Image.objects.all().filter(user_id=user_id)
     return render(request, 'profile.html', {'profile': profile, 'images': images})
+
+@login_required(login_url='/accounts/login')
+def single_image(request, photo_id):
+    image = Image.objects.get(id=photo_id)
+    return render(request, 'single_image.html', {'image': image})
