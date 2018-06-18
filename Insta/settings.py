@@ -27,7 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gw$7c&q9t_^^p5ksee5q7z7dyqjajk)qx%@_fpf0pg3zy2&a#u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -88,14 +87,13 @@ WSGI_APPLICATION = 'Insta.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+   'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instagram',
-        'USER': 'apple',
-        'PASSWORD': 'Mwangi01',
-    }
+        'NAME': config('DBNAME'),
+        'USER':config('DBUSER'),
+        'PASSWORD':config('DBPASSWORD')
+   }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
