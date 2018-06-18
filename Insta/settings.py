@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'Insta',
     'bootstrap3',
-    'registration',
     'django.contrib.sites',
     'gram.apps.GramConfig',
     'django.contrib.admin',
