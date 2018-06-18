@@ -54,7 +54,7 @@ def find_profile(request):
         return render(request, 'user_profile.html', {'images': searched_image})
     else:
         message = 'You haven\'t searched for anything'
-        return render(request, 'single_image.html')
+    return render(request, 'single_image.html')
 
 @login_required(login_url='/accounts/register/')
 def single_image_like(request, photo_id):
