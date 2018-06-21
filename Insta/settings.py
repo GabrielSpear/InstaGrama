@@ -34,8 +34,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'Insta',
     'bootstrap3',
-    'django.contrib.sites',
+    'registration',
     'gram.apps.GramConfig',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,6 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Insta.wsgi.application'
 
+AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
