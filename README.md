@@ -1,5 +1,5 @@
 # [INSTAGRAM](https://instagramal.herokuapp.com/)
-## Web clone of the Instagram app
+#### Web clone of the Instagram app
 #### By **[Gabriel Gatumu](https://github.com/GabrielSpear/)**
 
 ## Description
@@ -20,13 +20,12 @@ Users have privileges of viewing images on the homepage.
 ## Set Up and Installations
 
 ### Prerequisites
-1. Python3.6
-2. [Postgres](https://www.postgresql.org/download/)
-3. [python virtualenv](https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b)
+1. Internet access
+2. Python3.6
+3. [Postgres](https://www.postgresql.org/download/)
+4. [python virtualenv](https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b)
 
 ### Clone the Repo
-
-    internet access
 
     git clone   https://github.com/GabrielSpear/InstaGrama.git
 
@@ -40,6 +39,12 @@ Users have privileges of viewing images on the homepage.
 
     $ python3.6 manage.py runserver
 
+### Create the Database
+
+    ```bash
+    psql
+    CREATE DATABASE instagram;
+    ```
 
 ### .env file
 Create .env file and paste paste the following filling where appropriate:
@@ -69,9 +74,6 @@ python3.6 manage.py migrate
 python3.6 manage.py runserver
 ```
 Open terminal on `localhost:8000`
-
-## Known bugs
-Like and Follow functionality do not work
 
 ## Technologies used
     - Python 3.6
