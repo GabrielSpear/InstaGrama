@@ -1,11 +1,10 @@
-# INSTAGRAM
+# [INSTAGRAM](https://instagramal.herokuapp.com/)
+## Web clone of the Instagram app
+#### By **[Gabriel Gatumu](https://github.com/GabrielSpear/)**
 
-##  Description
-
-This is a Django web clone app of Instagram that a user shares photos with other users. Can sign up, login, upload self photos, follow other users, like/comment on their photos and do a list of other activities.
-
-######  By Gabriel Gatumu
-
+## Description
+This is a django web app clone of InstaGram whereby a user can create an account, view images, share images, like other users images and comment on them,
+Users have privileges of viewing images on the homepage.
 
 ### User Stories
 
@@ -18,15 +17,14 @@ This is a Django web clone app of Instagram that a user shares photos with other
     Like a picture and leave a comment on it
 
 
-####  How To Use The App
+## Set Up and Installations
 
-    Visit https://github.com/GabrielSpear/InstaGrama.git
-    clone the repository to your local machine
-    Download and install virtual environment then activate it
-    Install all requirements needed from the requirements.txt file
+### Prerequisites
+1. Python3.6
+2. [Postgres](https://www.postgresql.org/download/)
+3. [python virtualenv](https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b)
 
-
-### Setup/Installation Requirements
+### Clone the Repo
 
     internet access
 
@@ -43,6 +41,46 @@ This is a Django web clone app of Instagram that a user shares photos with other
     $ python3.6 manage.py runserver
 
 
+### .env file
+Create .env file and paste paste the following filling where appropriate:
+```python
+SECRET_KEY = '<Secret_key>'
+DBNAME = 'instagram'
+USER = '<Username>'
+PASSWORD = '<password>'
+DEBUG = True
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '<your-email>'
+EMAIL_HOST_PASSWORD = '<your-password>'
+```
+
+### Run initial Migration
+
+```bash
+python3.6 manage.py makemigrations gram
+python3.6 manage.py migrate
+```
+
+### Run the app
+```bash
+python3.6 manage.py runserver
+```
+Open terminal on `localhost:8000`
+
+## Known bugs
+Like and Follow functionality do not work
+
+## Technologies used
+    - Python 3.6
+    - HTML
+    - Bootstrap 4
+    - JavaScript
+    - Heroku
+    - Postgresql
+
 ##  Requirements
 
       Python3.6.4
@@ -56,21 +94,9 @@ This is a Django web clone app of Instagram that a user shares photos with other
       pytz==2018.3
       whitenoise==3.3.1
 
-"'Incase you have any questionor issues while using this code do not hesitate to get in touch with me via gabrieldvjspear@gmail.com'"
-
-
-##### Know bugs
-
-No known bugs
-
-####  Technologies Used
-
-    Python3.6
-    Django.1.11
-    Bootstrap3
-    postgres
-    virtualenv
-
+## Support and contact details
+```
+Incase you have any questions issues while using this code do not hesitate to get in touch with me via gabrieldvjspear@gmail.com
+```
 ### License
-
-MIT (c) 2018 Gabriel Gatumu
+MIT (c) **Gabriel Gatumu**
