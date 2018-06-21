@@ -3,9 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import NewStatusForm, NewCommentForm
 from .models import Image, Profile, Comments
 
-# Create your views here
+# Create your views here.
 # Login  function, display user profile function, displaying user_profile image, find_profile
-
 
 @login_required(login_url='/accounts/login/')
 def timelines(request):
@@ -15,14 +14,12 @@ def timelines(request):
     comments = Comments.objects.order_by('-time_comment')
     return render(request, 'timelines.html', {'images': images, 'profiles': profiles, 'user_profile': user_profile, 'comments': comments})
 
-
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
     profile = Profile.objects.get(user_id=current_user)
     images = Image.objects.all().filter(user=current_user)
     return render(request, 'profile.html', {'images': images, 'profile': profile})
-
 
 @login_required(login_url='/accounts/login/')
 def new_status(request, username):
@@ -39,19 +36,16 @@ def new_status(request, username):
         form = NewStatusForm()
     return render(request, 'new_status.html', {"form": form})
 
-
 @login_required(login_url='/accounts/login')
 def user_profile(request, user_id):
     profile = Profile.objects.get(id=user_id)
     images = Image.objects.all().filter(user_id=user_id)
     return render(request, 'profile.html', {'profile': profile, 'images': images})
 
-
 @login_required(login_url='/accounts/login')
 def single_image(request, photo_id):
     image = Image.objects.get(id=photo_id)
     return render(request, 'single_image.html', {'image': image})
-
 
 def find_profile(request):
     if 'images' in request.GET and request.GET['images']:
@@ -60,8 +54,7 @@ def find_profile(request):
         return render(request, 'user_profile.html', {'images': searched_image})
     else:
         message = 'You haven\'t searched for anything'
-        return render(request, 'single_image.html')
-
+    return render(request, 'single_image.html')
 
 @login_required(login_url='/accounts/register/')
 def single_image_like(request, photo_id):
@@ -69,7 +62,6 @@ def single_image_like(request, photo_id):
     image.likes = image.likes + 1
     image.save()
     return redirect('allTimelines')
-
 
 @login_required(login_url='/accounts/login/')
 def new_comment(request, username):
